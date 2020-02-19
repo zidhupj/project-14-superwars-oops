@@ -44,8 +44,8 @@ Open the `SpecRunner.html` file on your browser and start coding to pass the tes
 
 ### Progression 1: Rethink and reuse
 
-Now, add `member variables` like id, name, strength, image and type to `class` `Player` and then assign them appropriate values such that they _return a valid player object_.
-*  `strength` can be generated from `getRandomStrength()` `member function`, which _return a random strength_ from 1 to 100 .
+Now, add `member variables` like id, name, strength, image and type to `class``Player` and then assign them appropriate values such that they _return a valid player object_.
+*  `strength` can be generated from `getRandomStrength()` `member function`, which _returns a random strength_ from 1 to 100 .
 * `image` can be sequential i.e. "images/super-"+(i+1)+".png"  
 * `type` of player can alternating between hero and villain or your own logic
     ```javascript
