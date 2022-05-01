@@ -2,31 +2,34 @@ const PLAYERS = [
     "Spiderman",
     "Captain America",
     "Wonderwoman",
-    // "Popcorn",
-    // "Gemwoman",
-    // "Bolt",
-    // "Antwoman",
-    // "Mask",
-    // "Tiger",
-    // "Captain",
-    // "Catwoman",
-    // "Fish",
-    // "Hulk",
-    // "Ninja",
-    // "Black Cat",
-    // "Volverine",
-    // "Thor",
-    // "Slayer",
-    // "Vader",
-    // "Slingo"
+    "Popcorn",
+    "Gemwoman",
+    "Bolt",
+    "Antwoman",
+    "Mask",
+    "Tiger",
+    "Captain",
+    "Catwoman",
+    "Fish",
+    "Hulk",
+    "Ninja",
+    "Black Cat",
+    "Volverine",
+    "Thor",
+    "Slayer",
+    "Vader",
+    "Slingo"
 ];
 
 // Player Class
 class Player {
     constructor(id, name, type) {
         // Create member variables and assign values
-        // Type your code
-
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.strength = this.getRandomStrength();
+        this.image = "images/super-" + (id + 1) + ".png";
     }
 
     // getting random strength
@@ -38,8 +41,24 @@ class Player {
     view = () => {
         // Accumulate HTML template
         // Type your code here
+        const player = document.createElement("div")
+        player.setAttribute("class", "player")
+        player.setAttribute("data-id", this.id)
 
-    
+        const image = document.createElement("img")
+        image.src = "images/super-" + this.id + ".png"
+
+
+        const name = document.createElement("div")
+        name.setAttribute("class", "name")
+        name.innerHTML = this.name
+
+        const strength = document.createElement("div")
+        strength.setAttribute("class", "strength")
+        strength.innerHTML = this.getRandomStrength()
+
+        player.append(image, name, strength)
+
         return player;
     }
 }
@@ -47,10 +66,13 @@ class Player {
 // Superwar Class
 class Superwar {
     constructor(players) {
-    // Create a field players 
-    // Use Map method to loop through players argument and create new players
-    // Type your code here
-
+        // Create a field players
+        // Use Map method to loop through players argument and create new players
+        console.log(players)
+        this.players = players.map((player, i) => {
+            const type = i % 2 == 0 ? "hero" : "villain"
+            return new Player(i + 1, player, type);
+        });
     }
 
     // Display players in HTML
